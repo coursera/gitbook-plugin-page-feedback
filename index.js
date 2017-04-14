@@ -28,19 +28,20 @@ module.exports = {
         'page:before': function(page) {
             // append to the website renderer only
             console.log('page before called');
-            page.content = page.content + '\n{% pagefeedback %}' + footerString + '{% pagefeedback %}';
+            page.content = page.content + '\n<strong>test test</strong>';
+            // page.content = page.content + '\n{% pagefeedback %}' + footerString + '{% pagefeedback %}';
             console.log('page content updated');
             return page;
         }
     },
 
-    blocks: {
-        'pagefeedback': {
-            process: function(block) {
-                // TODO - maybe add some hr here
-                console.log('process block inside page feedback');
-                return '<div id="page-feedback">' + block.body + '</div>';
-            }
-        }
-    }
+    // blocks: {
+    //     'pagefeedback': {
+    //         process: function(block) {
+    //             // TODO - maybe add some hr here
+    //             console.log('process block inside page feedback');
+    //             return '<div id="page-feedback">' + block.body + '</div>';
+    //         }
+    //     }
+    // }
 };
