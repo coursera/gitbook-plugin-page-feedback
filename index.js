@@ -7,7 +7,6 @@ module.exports = {
         // called on each book & each language book
         'init': function() {
             var cfg = this.config.get('pluginsConfig.page-feedback'), _this = this;
-            console.log('page feedback init');
 
             // try {
             //     fs.statSync(this.resolve(cfg.filename));
@@ -22,26 +21,23 @@ module.exports = {
             //     .then(function (data) { return _this.renderBlock('markdown',data); }, this.log.error)
             //     .then(function(html) { footerString = html; }, this.log.error);
 
-            footerString = '<strong>test</strong>';
+            footerString = 'Was this helpful?<br/><a>Yes, thanks!</a> <a>Not really</a>';
 
         },
         'page:before': function(page) {
             // append to the website renderer only
-            console.log('page before called');
-            page.content = page.content + '\n<strong>test test</strong>';
-            // page.content = page.content + '\n{% pagefeedback %}' + footerString + '{% pagefeedback %}';
-            console.log('page content updated');
+            page.content = page.content + '\n{% pagefeedback %}' + footerString + '{% endpagefeedback %}';
             return page;
         }
     },
 
-    // blocks: {
-    //     'pagefeedback': {
-    //         process: function(block) {
-    //             // TODO - maybe add some hr here
-    //             console.log('process block inside page feedback');
-    //             return '<div id="page-feedback">' + block.body + '</div>';
-    //         }
-    //     }
-    // }
+    blocks: {
+        'pagefeedback': {
+            process: function(block) {
+                // TODO - maybe add some hr here
+                console.log('process block inside page feedback');
+                return '<div id="page-feedback">' + block.body + '</div>';
+            }
+        }
+    }
 };
