@@ -21,7 +21,7 @@ module.exports = {
             //     .then(function (data) { return _this.renderBlock('markdown',data); }, this.log.error)
             //     .then(function(html) { footerString = html; }, this.log.error);
 
-            footerString = 'Was this helpful?<br/><a>Yes, thanks!</a> <a>Not really</a>';
+            footerString = 'Was this helpful?<br/><a id="page-feedback-yes">Yes, thanks!</a> <a id="page-feedback-no">Not really</a>';
 
         },
         'page:before': function(page) {
@@ -35,7 +35,6 @@ module.exports = {
         'pagefeedback': {
             process: function(block) {
                 // TODO - maybe add some hr here
-                console.log('process block inside page feedback');
                 return '<div id="page-feedback">' + block.body + '</div>';
             }
         }
