@@ -61,7 +61,5 @@ module.exports = {
                 return '<div id="page-feedback">' + block.body + '</div>';
             }
         }
-    },
-
-    website: getHandlerScripts
+    }
 };
