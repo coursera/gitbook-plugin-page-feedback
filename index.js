@@ -21,12 +21,13 @@ module.exports = {
     blocks: {
         'pagefeedback': {
             process: function(block) {
-                return '<div id="page-feedback">' + block.body + '</div>';
+                return '<div id="page-feedback" style="margin-top: 25px;">' + block.body + '</div>';
             }
         }
     },
 
     book: {
+        assets: "./book",
         js: [
             "handler.js"
         ]
