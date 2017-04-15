@@ -1,6 +1,4 @@
-
 require(["gitbook", "jQuery"], function(gitbook, $) {
-    // Load
     gitbook.events.bind("page.change", function(e, config) {
         console.log(config);
         var cfg = config['page-feedback'];
@@ -28,7 +26,6 @@ require(["gitbook", "jQuery"], function(gitbook, $) {
         }
 
 
-
         $(function() {
             $("#page-feedback-yes").on("click", function(e) {
                 console.log('page feedback yes!');
@@ -44,10 +41,5 @@ require(["gitbook", "jQuery"], function(gitbook, $) {
             });
         });
 
-    });
-
-    // Notify pageview
-    gitbook.events.bind("page.change", function() {
-        //
     });
 });
