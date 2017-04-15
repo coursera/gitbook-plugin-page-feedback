@@ -1,0 +1,22 @@
+{
+    "name": "gitbook-plugin-page-feedback",
+    "description": "Page feedback for gitbook",
+    "main": "index.js",
+    "version": "0.1.0",
+    "engines": {
+        "gitbook": ">=2.5.1"
+    },
+    "homepage": "https://github.com/hypertrack/gitbook-plugin-page-feedback",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/hypertrack/gitbook-plugin-page-feedback"
+    },
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/hypertrack/gitbook-plugin-page-feedback/issues"
+    },
+    "gitbook": {
+        "properties": {
+        }
+    }
+}
