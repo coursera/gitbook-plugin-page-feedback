@@ -1,5 +1,7 @@
 require(["gitbook", "jQuery"], function(gitbook, $) {
     gitbook.events.bind("page.change", function(e, config) {
+        console.log('page has changed inside handler');
+        console.log(e);
         console.log(config);
         var cfg = config['page-feedback'];
 
