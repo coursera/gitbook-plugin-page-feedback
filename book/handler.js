@@ -1,9 +1,15 @@
+var cfg;
+
 require(["gitbook", "jQuery"], function(gitbook, $) {
-    gitbook.events.bind("page.change", function(e, config) {
+
+    gitbook.events.bind("start", function(e, config) {
+        console.log('handler init');
+        cfg = config['page-feedback'];
+        console.log(config, cfg);
+    }
+
+    gitbook.events.bind("page.change", function(e) {
         console.log('page has changed inside handler');
-        console.log(e);
-        console.log(config);
-        var cfg = config['page-feedback'];
 
         function sendToSlack(text) {
             request_data = {
