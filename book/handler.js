@@ -2,11 +2,11 @@
 require(["gitbook"], function(gitbook) {
     // Load
     gitbook.events.bind("page.change", function(e, config) {
-        var cfg = config.['page-feedback'];
+        var cfg = config['page-feedback'];
 
         function sendToSlack(text) {
             request_data = {
-                "channel": cfg.channel,
+                "channel": cfg['slack-channel'],
                 "text": text,
                 "username": "Obi-Wan",
                 "icon_emoji": ":key:"
