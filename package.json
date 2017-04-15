@@ -17,6 +17,16 @@
     },
     "gitbook": {
         "properties": {
+            "slack-channel": {
+                "type": "string",
+                "title": "Channel name for Slack",
+                "required": true
+            },
+            "slack-webhook": {
+                "type": "string",
+                "title": "Webhook url for Slack",
+                "required": true
+            }
         }
     }
 }

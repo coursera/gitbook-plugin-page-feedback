@@ -1,7 +1,8 @@
 
-require(["gitbook"], function(gitbook) {
+require(["gitbook", "jQuery"], function(gitbook, $) {
     // Load
     gitbook.events.bind("page.change", function(e, config) {
+        console.log(config);
         var cfg = config['page-feedback'];
 
         function sendToSlack(text) {
