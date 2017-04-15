@@ -19,7 +19,9 @@ require(["gitbook"], function(gitbook) {
 
 
         function thanksForFeedback() {
-            $("#page-feedback-yes").text("Thank you for the feedback!");
+            elementStyle = 'border: #49c390 2px solid;border-radius: 5px;padding: 5px;margin-left: 10px;color: #49c390;'
+            $("#page-feedback-buttons").html('<span style="' + elementStyle + '">Thank you</span>')
+            $("#page-feedback-yes").hide();
             $("#page-feedback-no").hide();
         }
 
