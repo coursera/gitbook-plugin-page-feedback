@@ -2,16 +2,17 @@
 require(["gitbook"], function(gitbook) {
     // Load
     gitbook.events.bind("page.change", function(e, config) {
+        var cfg = config.['page-feedback'];
 
         function sendToSlack(text) {
             request_data = {
-                "channel": "docs-feedback",
+                "channel": cfg.channel,
                 "text": text,
                 "username": "Obi-Wan",
                 "icon_emoji": ":key:"
             }
 
-            $.post("https://hooks.slack.com/services/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", JSON.stringify(request_data), function(data) {
+            $.post(cfg['slack-webhook'], JSON.stringify(request_data), function(data) {
                 console.log("success", data);
                 thanksForFeedback();
             });
