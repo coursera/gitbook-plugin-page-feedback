@@ -2,7 +2,7 @@
     "name": "gitbook-plugin-page-feedback",
     "description": "Page feedback for gitbook",
     "main": "index.js",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "engines": {
         "gitbook": ">=2.5.1"
     },
@@ -17,6 +17,16 @@
     },
     "gitbook": {
         "properties": {
+            "slack-channel": {
+                "type": "string",
+                "title": "Channel name for Slack",
+                "required": true
+            },
+            "slack-webhook": {
+                "type": "string",
+                "title": "Webhook url for Slack",
+                "required": true
+            }
         }
     }
 }

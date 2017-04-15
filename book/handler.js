@@ -1,17 +1,17 @@
-
-require(["gitbook"], function(gitbook) {
-    // Load
+require(["gitbook", "jQuery"], function(gitbook, $) {
     gitbook.events.bind("page.change", function(e, config) {
+        console.log(config);
+        var cfg = config['page-feedback'];
 
         function sendToSlack(text) {
             request_data = {
-                "channel": "docs-feedback",
+                "channel": cfg['slack-channel'],
                 "text": text,
                 "username": "Obi-Wan",
                 "icon_emoji": ":key:"
             }
 
-            $.post("https://hooks.slack.com/services/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", JSON.stringify(request_data), function(data) {
+            $.post(cfg['slack-webhook'], JSON.stringify(request_data), function(data) {
                 console.log("success", data);
                 thanksForFeedback();
             });
@@ -24,7 +24,6 @@ require(["gitbook"], function(gitbook) {
             $("#page-feedback-yes").hide();
             $("#page-feedback-no").hide();
         }
-
 
 
         $(function() {
@@ -42,10 +41,5 @@ require(["gitbook"], function(gitbook) {
             });
         });
 
-    });
-
-    // Notify pageview
-    gitbook.events.bind("page.change", function() {
-        //
     });
 });
