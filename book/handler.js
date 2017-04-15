@@ -14,7 +14,7 @@ require(["gitbook", "jQuery"], function(gitbook, $) {
                 "channel": cfg['slack-channel'],
                 "text": text,
                 "username": "Obi-Wan",
-                "icon_emoji": ":key:"
+                "icon_emoji": ":scales:"
             }
 
             $.post(cfg['slack-webhook'], JSON.stringify(request_data), function(data) {
@@ -34,8 +34,7 @@ require(["gitbook", "jQuery"], function(gitbook, $) {
 
         $(function() {
             $("#page-feedback-yes").on("click", function(e) {
-                console.log('page feedback yes!');
-                sendToSlack("Someone thinks <" + window.location.href + "|" + document.title + "> is helpful, yay! :raised_hands:");
+                sendToSlack("<" + window.location.href + "|" + document.title + "> is helpful! :bowtie: :balloon:");
             });
         });
 
@@ -43,7 +42,7 @@ require(["gitbook", "jQuery"], function(gitbook, $) {
         $(function() {
             $("#page-feedback-no").on("click", function(e) {
                 console.log('page feedback no!');
-                sendToSlack("Someone thinks <" + window.location.href + "|" + document.title + "> is not helpful, oops! :dizzy_face:");
+                sendToSlack("<" + window.location.href + "|" + document.title + "> is *not* helpful! :dizzy_face: :poop:");
             });
         });
 
