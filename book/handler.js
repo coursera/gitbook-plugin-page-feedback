@@ -1,7 +1,7 @@
 
 require(["gitbook"], function(gitbook) {
     // Load
-    gitbook.events.bind("start", function(e, config) {
+    gitbook.events.bind("page.change", function(e, config) {
 
         function sendToSlack(text) {
             request_data = {
