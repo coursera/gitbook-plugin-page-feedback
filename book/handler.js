@@ -3,9 +3,7 @@ var cfg;
 require(["gitbook", "jQuery"], function(gitbook, $) {
 
     gitbook.events.bind("start", function(e, config) {
-        console.log('handler init');
         cfg = config['page-feedback'];
-        console.log(config, cfg);
     });
 
     gitbook.events.bind("page.change", function(e) {
