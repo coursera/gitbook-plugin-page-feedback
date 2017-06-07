@@ -2,7 +2,7 @@
     "name": "gitbook-plugin-page-feedback",
     "description": "Page feedback for gitbook",
     "main": "index.js",
-    "version": "0.1.5",
+    "version": "0.1.6",
     "engines": {
         "gitbook": ">=2.5.1"
     },

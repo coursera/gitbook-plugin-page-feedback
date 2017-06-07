@@ -18,7 +18,7 @@ require(["gitbook", "jQuery"], function(gitbook, $) {
                 "channel": cfg['slack-channel'],
                 "text": text,
                 "username": "Coursera Gitbooks",
-                "icon_emoji": ":page-facing-up:"
+                "icon_emoji": "page-facing-up"
             };
 
             $.post(cfg['google-script-web-deploy-endpoint'], JSON.stringify(slack_request_data), function(data) {
