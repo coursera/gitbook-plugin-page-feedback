@@ -22,7 +22,7 @@ require(["gitbook", "jQuery"], function(gitbook, $) {
             };
 
 
-            $.post(cfg['slack-webhook'], JSON.stringify(google_request_data), function(data) {
+            $.post(cfg['slack-webhook'], JSON.stringify(slack_request_data), function(data) {
               thanksForFeedback();
             });
           }
@@ -33,7 +33,7 @@ require(["gitbook", "jQuery"], function(gitbook, $) {
             "title": title
           };
 
-          $.post(cfg['google-script-web-deploy-endpoint'], JSON.stringify(slack_request_data), function(data) {
+          $.post(cfg['google-script-web-deploy-endpoint'], JSON.stringify(google_request_data), function(data) {
               thanksForFeedback();
           });
         }
