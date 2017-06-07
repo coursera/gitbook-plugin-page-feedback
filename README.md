@@ -6,7 +6,7 @@ below is a screenshot of what it looks like:
 ![Screenshot](page-feedback-screenshot.png)
 
 
-## Configuration
+## Install and Configure
 Add this plugin to your book.json to the `plugins` section
 
 ```json
