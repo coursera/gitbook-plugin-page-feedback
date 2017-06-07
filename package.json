@@ -6,26 +6,31 @@
     "engines": {
         "gitbook": ">=2.5.1"
     },
-    "homepage": "https://github.com/hypertrack/gitbook-plugin-page-feedback",
+    "homepage": "https://github.com/coursera/gitbook-plugin-page-feedback",
     "repository": {
         "type": "git",
-        "url": "https://github.com/hypertrack/gitbook-plugin-page-feedback"
+        "url": "https://github.com/coursera/gitbook-plugin-page-feedback"
     },
-    "license": "MIT",
+    "license": "Apache",
     "bugs": {
-        "url": "https://github.com/hypertrack/gitbook-plugin-page-feedback/issues"
+        "url": "https://github.com/coursera/gitbook-plugin-page-feedback/issues"
     },
     "gitbook": {
         "properties": {
+            "google-script-web-deploy-endpoint": {
+                "type": "string",
+                "title": "Webhook url for Google script",
+                "required": true
+            },
             "slack-channel": {
                 "type": "string",
                 "title": "Channel name for Slack",
-                "required": true
+                "required": false
             },
             "slack-webhook": {
                 "type": "string",
                 "title": "Webhook url for Slack",
-                "required": true
+                "required": false
             }
         }
     }

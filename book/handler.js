@@ -7,20 +7,34 @@ require(["gitbook", "jQuery"], function(gitbook, $) {
     });
 
     gitbook.events.bind("page.change", function(e) {
-        console.log('page has changed inside handler');
+        function notify(vote) {
+          var title = document.title;
+          var href = window.location.href;
 
-        function sendToSlack(text) {
-            request_data = {
+          if (cfg['slack-channel']) {
+            var text = vote === 1 ? "<" + href + "|" + title + "> is helpful! :bowtie: :balloon:" : "<" + href + "|" + title + "> is *not* helpful! :dizzy_face: :poop:";
+
+            var slack_request_data = {
                 "channel": cfg['slack-channel'],
                 "text": text,
-                "username": "Obi-Wan",
-                "icon_emoji": ":scales:"
-            }
+                "username": "Coursera Gitbooks",
+                "icon_emoji": ":page-facing-up:"
+            };
 
-            $.post(cfg['slack-webhook'], JSON.stringify(request_data), function(data) {
-                console.log("success", data);
+            $.post(cfg['slack-webhook'], JSON.stringify(slack_request_data), function(data) {
                 thanksForFeedback();
             });
+          }
+
+          var google_request_data = {
+            "vote": vote,
+            "url": href,
+            "title": title
+          };
+
+          $.post(cfg['slack-webhook'], JSON.stringify(google_request_data), function(data) {
+            thanksForFeedback();
+          });
         }
 
 
@@ -34,15 +48,14 @@ require(["gitbook", "jQuery"], function(gitbook, $) {
 
         $(function() {
             $("#page-feedback-yes").on("click", function(e) {
-                sendToSlack("<" + window.location.href + "|" + document.title + "> is helpful! :bowtie: :balloon:");
+                notify(1);
             });
         });
 
 
         $(function() {
             $("#page-feedback-no").on("click", function(e) {
-                console.log('page feedback no!');
-                sendToSlack("<" + window.location.href + "|" + document.title + "> is *not* helpful! :dizzy_face: :poop:");
+                notify(0);
             });
         });
 
