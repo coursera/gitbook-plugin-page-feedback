@@ -12,15 +12,13 @@ require(["gitbook", "jQuery"], function(gitbook, $) {
           var href = window.location.href;
 
           if (cfg['slack-channel']) {
-            var text = vote === 1 ? "<" + href + "|" + title + "> is helpful! :bowtie: :balloon:" : "<" + href + "|" + title + "> is *not* helpful! :dizzy_face: :poop:";
+            var text = vote === 1 ? "someone thinks <" + href + "|" + title + "> on our docs is helpful! :bowtie: :balloon:" : 
+              "someone thinks <" + href + "|" + title + "> on our docs is *not* helpful! :dizzy_face: :poop:";
 
             var slack_request_data = {
                 "channel": cfg['slack-channel'],
-                "text": text,
-                "username": "Coursera Gitbooks",
-                "icon_emoji": "page-facing-up"
+                "text": text
             };
-
 
             $.post(cfg['slack-webhook'], JSON.stringify(slack_request_data), function(data) {
               thanksForFeedback();
