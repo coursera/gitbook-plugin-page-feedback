@@ -5,8 +5,16 @@ below is a screenshot of what it looks like:
 
 ![Screenshot](page-feedback-screenshot.png)
 
+## Create a Slack webhook
+
+https://api.slack.com/incoming-webhooks
+
+## Create a Google Script Web App Endpoint
+
+https://github.com/coursera/emscripts/blob/master/google-scripts/gitbook-plugin-page-feedback-database/Code.js
 
 ## Install and Configure
+
 Add this plugin to your book.json to the `plugins` section
 
 ```json
@@ -25,7 +33,7 @@ then configure the `pluginConfigs` section
   "page-feedback": {
     "slack-channel": "feedback",
     "slack-webhook": "https://hooks.slack.com/services/xyz/abc/123",
-    "google-scripts-web-deploy-endpoint": "https://hooks.slack.com/services/xyz/abc/123"
+    "google-scripts-web-deploy-endpoint": "https://script.google.com/xyz/abc/123"
   }
 }
 ```
