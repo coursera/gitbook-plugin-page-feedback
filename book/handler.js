@@ -8,12 +8,17 @@ require(["gitbook", "jQuery"], function(gitbook, $) {
 
     gitbook.events.bind("page.change", function(e) {
         function notify(vote) {
+          notifyGoogle(vote);
+          notifySlack(vote);
+        }
+
+        function notifySlack(vote) {
           var title = document.title;
           var href = window.location.href;
 
           if (cfg['slack-channel']) {
-            var text = vote === 1 ? "someone thinks <" + href + "|" + title + "> on our docs is helpful! :bowtie: :balloon:" : 
-              "someone thinks <" + href + "|" + title + "> on our docs is *not* helpful! :dizzy_face: :poop:";
+            var text = vote === 1 ? "someone thinks \"<" + href + "|" + title + ">\" is helpful! :bowtie: :balloon:" :
+              "someone thinks \"<" + href + "|" + title + ">\" is *not* helpful! :dizzy_face: :poop:";
 
             var slack_request_data = {
                 "channel": cfg['slack-channel'],
@@ -21,9 +26,13 @@ require(["gitbook", "jQuery"], function(gitbook, $) {
             };
 
             $.post(cfg['slack-webhook'], JSON.stringify(slack_request_data), function(data) {
-              thanksForFeedback();
             });
           }
+        }
+
+        function notifyGoogle(vote) {
+          var title = document.title;
+          var href = window.location.href;
 
           var google_request_data = {
             "vote": vote,
@@ -31,9 +40,13 @@ require(["gitbook", "jQuery"], function(gitbook, $) {
             "title": title
           };
 
-          $.post(cfg['google-script-web-deploy-endpoint'], JSON.stringify(google_request_data), function(data) {
-              thanksForFeedback();
+          $.ajax({
+            url: cfg['google-script-web-deploy-endpoint'],
+            dataType: 'jsonp',
+            data: google_request_data
           });
+
+          thanksForFeedback();
         }
 
 
