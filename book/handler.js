@@ -21,7 +21,7 @@ require(["gitbook", "jQuery"], function(gitbook, $) {
                 "icon_emoji": ":page-facing-up:"
             };
 
-            $.post(cfg['slack-webhook'], JSON.stringify(slack_request_data), function(data) {
+            $.post(cfg['google-script-web-deploy-endpoint'], JSON.stringify(slack_request_data), function(data) {
                 thanksForFeedback();
             });
           }
