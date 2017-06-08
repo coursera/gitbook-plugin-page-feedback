@@ -11,19 +11,14 @@ https://api.slack.com/incoming-webhooks
 
 ## Create a Google Script Web App Endpoint
 
-https://github.com/coursera/emscripts/blob/master/google-scripts/gitbook-plugin-page-feedback-database/Code.js
+copy contents of file `google-script/Code.js` to a [google script and deploy as a web app](https://developers.google.com/apps-script/guides/web)
 
 ## Install and Configure
 
 Add this plugin to your book.json to the `plugins` section
 
 ```json
-  "plugins": [
-    {
-      "name": "page-feedback",
-      "version": "git+https://github.com/coursera/gitbook-plugin-page-feedback"
-    }
-  ]
+  "plugins": ["page-feedback"]
 ```
 
 then configure the `pluginConfigs` section
