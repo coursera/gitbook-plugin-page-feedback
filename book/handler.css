@@ -1,0 +1,32 @@
+.page-feedback-modal {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 99;
+  display: none;
+}
+
+.page-feedback-modal .page-feedback-modal-content {
+  position: fixed;
+  background-color: #fff;
+  box-shadow: 0 2px 1px rgba(34, 25, 25, 0.1);
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  z-index: 100;
+  padding: 25px;
+}
+
+.page-feedback-button {
+  border: #49c390 2px solid;
+  border-radius: 5px;
+  padding: 5px;
+  margin-left: 10px;
+  color: #49c390 !important;
+}
